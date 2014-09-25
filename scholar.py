@@ -809,13 +809,17 @@ class ScholarQuerier(object):
         """
         self.clear_articles()
         self.query = query
+        fetch_url(query.get_url()),
 
-        html = self._get_http_response(url=query.get_url(),
+    def fetch_url(self, url):
+        """
+        Retrieves the given url and parses the response.
+        """
+        html = self._get_http_response(url=url,
                                        log_msg='dump of query response HTML',
                                        err_msg='results retrieval failed')
         if html is None:
             return
-
         self.parse(html)
 
     def get_citation_data(self, article):
