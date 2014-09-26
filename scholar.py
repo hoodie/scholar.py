@@ -999,7 +999,7 @@ scholar.py -c 5 -a "albert einstein" -t --none "quantum theory" --after 1970"""
         ScholarUtils.log('info', 'using log level %d' % ScholarConf.LOG_LEVEL)
 
     if options.version:
-        print 'This is scholar.py %s.' % ScholarConf.VERSION
+        print('This is scholar.py %s.' % ScholarConf.VERSION)
         return 0
 
     if options.cookie_file:
@@ -1011,7 +1011,7 @@ scholar.py -c 5 -a "albert einstein" -t --none "quantum theory" --after 1970"""
         if options.author or options.allw or options.some or options.none \
            or options.phrase or options.title_only or options.pub \
            or options.after or options.before:
-            print 'Cluster ID queries do not allow additional search arguments.'
+            print('Cluster ID queries do not allow additional search arguments.')
             return 1
 
     querier = ScholarQuerier()
@@ -1026,7 +1026,7 @@ scholar.py -c 5 -a "albert einstein" -t --none "quantum theory" --after 1970"""
     elif options.citation == 'rw':
         settings.set_citation_format(ScholarSettings.CITFORM_REFWORKS)
     elif options.citation is not None:
-        print 'Invalid citation link format, must be one of "bt", "en", "rm", or "rw".'
+        print('Invalid citation link format, must be one of "bt", "en", "rm", or "rw".')
         return 1
 
     querier.apply_settings(settings)
