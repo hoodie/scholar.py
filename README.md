@@ -80,6 +80,9 @@ Let's retrieve a BibTeX entry for that quantum theory paper. The best BibTeX oft
       year={1917}
     }
 
+Now lets find  all the papers that cite Einstein... wait, better only get 10.
+
+    $ scholar.py --cites 13746912682491308133 -c 10
 
 License
 -------

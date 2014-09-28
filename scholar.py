@@ -522,6 +522,13 @@ class ScholarQuery(object):
         msg = 'maximum number of results on page must be numeric'
         self.num_results = ScholarUtils.ensure_int(num_page_results, msg)
 
+    def set_start_index(self, start_index):
+        """
+        Sets the start index of the query.  Usually, this would be a multiple
+        of the size of the search result (probably 10 or 20).
+        """
+        self.start_index = start_index
+
     def get_url(self):
         """
         Returns a complete, submittable URL string for this particular
@@ -619,13 +626,6 @@ class SearchScholarQuery(ScholarQuery):
         only.
         """
         self.scope_title = title_only
-
-    def set_start_index(self, start_index):
-        """
-        Sets the start index of the query.  Usually, this would be a multiple
-        of the size of the search result (probably 10 or 20).
-        """
-        self.start_index = start_index
 
     def set_author(self, author):
         """Sets names that must be on the result's author list."""
@@ -834,7 +834,7 @@ class ScholarQuerier(object):
         """
         self.clear_articles()
         self.query = query
-        fetch_url(query.get_url()),
+        self.fetch_url(query.get_url()),
 
     def fetch_url(self, url):
         """
